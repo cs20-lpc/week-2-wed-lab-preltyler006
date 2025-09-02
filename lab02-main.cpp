@@ -1,5 +1,8 @@
 #include "ArrayList.hpp"
+#include <iostream>
 #include <string>
+#include <exception>
+using namespace std;
 
 int main() {
     // call the constructor with a maximum size of 5
@@ -14,7 +17,9 @@ int main() {
     try {
         myList.replace(-3, "?");
     }
-    catch (const string& e) {
+    catch (const exception& e) {
+        cout << e.what() << endl;
+    } catch (const string& e) {
         cout << e << endl;
     }
 
@@ -24,8 +29,9 @@ int main() {
     // try inserting as an invalid operation
     try {
         myList.insert(5, "kweh");
-    }
-    catch (const string& e) {
+    } catch (const std::exception& e) {
+            cout << e.what() << '\n';
+    } catch (const string& e) {
         cout << e << endl;
     }
 
@@ -50,8 +56,9 @@ int main() {
     // try removing an element as an invalid operation
     try {
         secondList.remove(4);
-    }
-    catch (const string& e) {
+    } catch (const std::exception& e) {
+            cout << e.what() << '\n';
+    } catch (const string& e) {
         cout << e << endl;
     }
 
@@ -71,8 +78,9 @@ int main() {
     // try getting an element as an invalid operation
     try {
         word = thirdList.getElement(-9);
-    }
-    catch (const string& e) {
+    } catch (const std::exception& e) {
+            cout << e.what() << '\n';
+    } catch (const string& e) {
         cout << e << endl;
     }
 
@@ -83,14 +91,16 @@ int main() {
     // try adding elements as invalid operations
     try {
         thirdList.append("Banana");
-    }
-    catch (const string& e) {
+    } catch (const std::exception& e) {
+            cout << e.what() << '\n';
+    } catch (const string& e) {
         cout << e << endl;
     }
     try {
         thirdList.insert(0, "Banana");
-    }
-    catch (const string& e) {
+    } catch (const std::exception& e) {
+            cout << e.what() << '\n';
+    } catch (const string& e) {
         cout << e << endl;
     }
 
